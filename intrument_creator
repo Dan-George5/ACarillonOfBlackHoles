@@ -1,0 +1,61 @@
+#!/usr/bin/python
+import os, sys, pickle, math, optparse, glob, time, subprocess, random
+import matplotlib
+from matplotlib import pyplot as plt
+import rd_utils
+import numpy as np
+import wave
+import operator
+
+__version__ = 2.0
+__date__    = "2018/28/01"
+
+def parse_commandline():
+    """@parse the options given on the command-line.
+    """
+    parser = optparse.OptionParser(usage=__doc__,version=__version__)
+
+    parser.add_option("-s", "--spin", default=0.999999, type="float", help="Spin of black hole.")
+    parser.add_option("-f", "--freqsample", default=44100, type="float", help="Sample rate.")
+    #Need to have some sort of way to let user change amplitudes easily
+
+    opts, args = parser.parse_args()
+    
+    return opts 
+
+opts = parse_commandline()
+
+fs = opts.freqsample
+j  = opts.spin
+
+bh = rd_utils.BHI()
+ 
+#Load amplitudes for modes
+l, m, n, Amp = np.loadtxt("Default_amp.txt", skiprows = 2, unpack=True)
+
+#Find mode wtih largest amp
+index, value = max(enumerate(Amp), key=operator.itemgetter(1))
+max_mode = l[index], m[index], n[index]
+
+#Find fundamental mass for 440 Hz and given spin
+mass   = bh.mass_given_F(j)[max_mode]
+fund_f = bh.f(mass, j)[max_mode] #Check
+
+print fund_f
+
+A = {}
+for i in range(0, 62, 1):
+    A.update({(l[i], m[i], n[i]): Amp[i]})
+   
+for count in range(1, 89, 1): 
+    t, waveform = bh.waveform(A, count, j)
+
+    wavdata    = np.zeros(len(waveform), np.int16)
+    waveform   = waveform/np.max(waveform) * 32767.0
+    wavdata[:] = waveform.astype(int)
+     
+    wavfile = wave.open("WavFiles/%02d.wav" % (count), "wb") #Name and path for file
+    
+    wavfile.setparams((1, 2, fs, len(waveform), "NONE", "Uncompressed"))
+    wavfile.writeframesraw(np.getbuffer(wavdata))
+
