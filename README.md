@@ -9,9 +9,9 @@ Much like a bell emits sound waves when tapped; black holes emit gravitational w
 
 Here, we provide you with the tools to simulate your own array of 88 black holes. You can choose which modes are to be excited by editing, or adding your own amp.txt file. You can also change the spin of the black holes to create different kind of sounds.
 
-Make sure you have Python 2 installed, with all dependent libraries listed in instrument_creator and rd_utils. 
+NOTE: Make sure you have Python 2 installed, with all dependent libraries listed in instrument_creator and rd_utils. 
 
-Use terminal and enter
+On terminal, enter
 
 $ ./instrument_creator 
 
