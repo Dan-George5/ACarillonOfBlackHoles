@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os, sys, pickle, math, optparse, glob, time, subprocess, random
+import optparse
 import matplotlib
 from matplotlib import pyplot as plt
 import rd_utils
@@ -31,7 +31,7 @@ j  = opts.spin
 bh = rd_utils.BHI()
  
 #Load amplitudes for modes
-l, m, n, Amp = np.loadtxt("Default_amp.txt", skiprows = 2, unpack=True)
+l, m, n, Amp = np.loadtxt("default_amp.txt", skiprows = 2, unpack=True)
 
 #Find mode wtih largest amp
 index, value = max(enumerate(Amp), key=operator.itemgetter(1))
@@ -46,16 +46,32 @@ print fund_f
 A = {}
 for i in range(0, 62, 1):
     A.update({(l[i], m[i], n[i]): Amp[i]})
-   
+  
+#Creating WAV files with names for keys 
 for count in range(1, 89, 1): 
     t, waveform = bh.waveform(A, count, j)
 
     wavdata    = np.zeros(len(waveform), np.int16)
     waveform   = waveform/np.max(waveform) * 32767.0
     wavdata[:] = waveform.astype(int)
-     
+
     wavfile = wave.open("WavFiles/%02d.wav" % (count), "wb") #Name and path for file
-    
+
     wavfile.setparams((1, 2, fs, len(waveform), "NONE", "Uncompressed"))
     wavfile.writeframesraw(np.getbuffer(wavdata))
+'''
+path  = '/Users/Daniel.George/Desktop/Workspace/psu_ligo/A-Carillon-of-Black-Holes/WavFiles'
+#path = '/WavFiles'
+files_dir = os.listdir(path)
+print files_dir
 
+for number in ['0', '1', '2', '3', '4', '5', '6', '7', '8']:
+    for note in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+        for sharp in ['', '#']:
+            for file in files_dir:
+                if (note == 'B' or note == 'E'):
+                    os.rename(os.path.join(path, file), os.path.join(path, note + number +'.wav'))
+                    break
+                else:
+                    os.rename(os.path.join(path, file), os.path.join(path, note + number + sharp + '.wav'))
+'''
