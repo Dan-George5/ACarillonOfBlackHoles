@@ -1,5 +1,5 @@
 # A Carillon Of Black Holes
-Create your own black hole instrument with the help of gravitational waves!
+Create your own black hole instrument with the help of gravitational waves! (For more on the theory, read https://dcc.ligo.org/LIGO-P1800019/public)
 
 Much like a bell emits sound waves when tapped; black holes emit gravitational waves when perturbed. Previously, we have not been able to observe black holes due to the strong gravitational fields not allowing light to escape. In his theory of General Relativity, Einstein predicted the existence of gravitational waves. Around a 100 years later, a scientific collaboration named LIGO (Laser Interferometer Gravitational-Wave Observatory) proved this prediction by detecting gravitational-waves emitted from a binary black hole system that merged around 1.3 billion years ago.
 
