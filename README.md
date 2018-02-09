@@ -19,4 +19,4 @@ to create 88 WAV files based on the pre-set amplitudes and spin. You can change 
 
 $ ./instrument_creator -s 0.9999
 
-Replace 0.999 by any spin value 0 < spin < 1. Using a spin equal to, or greater than 1 will result in an error (i.e. your black hole being torn apart)
+Replace 0.999 by any spin value 0 < spin < 1. Using a spin equal to, or greater than 1 will result in an error as such a black hole cannot exist (the event horizon would be removed)
