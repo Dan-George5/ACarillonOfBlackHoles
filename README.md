@@ -7,7 +7,7 @@ In this project, we have simulated what black holes with extremely high spin sou
 
 <a href="http://www.codecogs.com/eqnedit.php?latex=h(t)&space;=&space;\sum_{n=0}^2\sum_{l=2}^4\sum_{m=-l}^l&space;A_{lmn}&space;e^{-\pi&space;f_{lmn}/Q_{lmn}}\sin({2\pi&space;f_{lmn}t})" target="_blank"><img src="http://latex.codecogs.com/gif.latex?h(t)&space;=&space;\sum_{n=0}^2\sum_{l=2}^4\sum_{m=-l}^l&space;A_{lmn}&space;e^{-\pi&space;f_{lmn}/Q_{lmn}}\sin({2\pi&space;f_{lmn}t})" title="h(t) = \sum_{n=0}^2\sum_{l=2}^4\sum_{m=-l}^l A_{lmn} e^{-\pi f_{lmn}/Q_{lmn}}\sin({2\pi f_{lmn}t})" /></a>.
 
-While the theory behind this is long and complex, we wish to distill it into saying that it is manner in which a black hole is perturbed that lends to how much of each mode is excited. By changing the amplitude of each mode, you essentially change how the black hole is perturbed, and thus leads to a different kind of sound. You can do this by editing right column of the amp.txt file. Let us know if you find some cool sounds!
+While the theory behind this is long and complex, we wish to distill it into saying that it is manner in which a black hole is perturbed that lends to how much of each mode is excited. By changing the amplitude of each mode, you essentially change how the black hole is perturbed, and thus leads to a different kind of sound. You can do this by editing right column of the defaul_amp.txt file. Let us know if you find some cool sounds!
 
 ## How to run
 
