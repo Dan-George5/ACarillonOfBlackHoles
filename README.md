@@ -17,6 +17,10 @@ NOTE: Make sure you have Python 2 installed, with all dependent libraries listed
 
 On terminal, enter
 
+$ mkdir WavFiles
+
+to create a directory to hold your WAV files. Then run
+
 $ ./instrument_creator 
 
 to create 88 WAV files based on the pre-set amplitudes and spin. You can change the spin of every black hole by running
