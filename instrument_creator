@@ -59,19 +59,4 @@ for count in range(1, 89, 1):
 
     wavfile.setparams((1, 2, fs, len(waveform), "NONE", "Uncompressed"))
     wavfile.writeframesraw(np.getbuffer(wavdata))
-'''
-path  = '/Users/Daniel.George/Desktop/Workspace/psu_ligo/A-Carillon-of-Black-Holes/WavFiles'
-#path = '/WavFiles'
-files_dir = os.listdir(path)
-print files_dir
 
-for number in ['0', '1', '2', '3', '4', '5', '6', '7', '8']:
-    for note in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
-        for sharp in ['', '#']:
-            for file in files_dir:
-                if (note == 'B' or note == 'E'):
-                    os.rename(os.path.join(path, file), os.path.join(path, note + number +'.wav'))
-                    break
-                else:
-                    os.rename(os.path.join(path, file), os.path.join(path, note + number + sharp + '.wav'))
-'''
